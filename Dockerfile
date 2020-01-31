@@ -3,6 +3,8 @@ ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
 COPY . /opt/mycroft/mycroft-core
 # Install Server Dependencies for Mycroft
+RUN mkdir /root/.mycroft
+VOLUME /root/.mycroft
 RUN ls -la ~/.mycroft
 RUN ls -la /root/.mycroft
 RUN set -x \
@@ -22,8 +24,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 WORKDIR /opt/mycroft/mycroft-core
-RUN mkdir ~/.mycroft \
-        && /opt/mycroft/mycroft-core/.venv/bin/msm -p mycroft_mark_1 default
+RUN /opt/mycroft/mycroft-core/.venv/bin/msm -p mycroft_mark_1 default
 RUN ls -la ~/.mycroft
 RUN ls -la /root/.mycroft
 EXPOSE 8181
