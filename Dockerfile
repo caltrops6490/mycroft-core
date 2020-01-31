@@ -26,6 +26,7 @@ EXPOSE 8181
 
 # Integration Test Suite
 FROM builder as voigt_kampff
+VOLUME /root/.mycroft
 # Activate the virtual environment for Mycroft Core.
 RUN . /opt/mycroft/mycroft-core/.venv/bin/activate \
     # Start the Mycroft Core proceses
