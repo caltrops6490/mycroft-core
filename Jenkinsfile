@@ -13,7 +13,7 @@ pipeline {
         stage('Run Integration Tests') {
             when {
                 anyOf {
-                    branch 'testing/behave'
+                    branch 'testing/behave-bak'
                     branch 'dev'
                     branch 'master'
                     triggeredBy 'TimerTrigger'
