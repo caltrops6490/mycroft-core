@@ -30,6 +30,7 @@ FROM builder as voigt_kampff
 RUN . /opt/mycroft/mycroft-core/.venv/bin/activate \
     # Start the Mycroft Core proceses
     && bash -x /opt/mycroft/mycroft-core/start-mycroft.sh all \
+    && ls -la ~/.mycroft
     # Setup the integration tests
     && python -m test.integrationtests.voigt_kampff.test_setup -c ~/.mycroft/test.yml \
     && cd test/integrationtests/voigt_kampff/
