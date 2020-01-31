@@ -21,7 +21,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'docker build --no-cache --target voigt_kampff -t mycroft-core:latest .'
+                sh 'docker build --no-cache --target voigt_kampff -t mycroft-core:testing .'
                 sh 'docker run \
                     -v "$HOME/voigtmycroft:/root/.mycroft" \
                     --device /dev/snd \
