@@ -22,11 +22,15 @@ ENV LC_ALL en_US.UTF-8
 WORKDIR /opt/mycroft/mycroft-core
 RUN mkdir ~/.mycroft \
         && /opt/mycroft/mycroft-core/.venv/bin/msm -p mycroft_mark_1 default
+RUN ls -la ~/.mycroft
+RUN ls -la /root/mycroft
 EXPOSE 8181
 
 # Integration Test Suite
 FROM builder as voigt_kampff
 VOLUME /root/.mycroft
+RUN ls -la ~/.mycroft
+RUN ls -la /root/mycroft
 # Activate the virtual environment for Mycroft Core.
 RUN . /opt/mycroft/mycroft-core/.venv/bin/activate \
     # Start the Mycroft Core proceses
