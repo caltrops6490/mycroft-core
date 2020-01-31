@@ -45,7 +45,7 @@ pipeline {
               reportName: "Behave Report"
             ])
             echo 'Cleaning up docker containers and images'
-            sh 'docker container prune --force'
+            sh 'docker container prune --force --filter "until=3h"'
             sh 'docker image prune --force'
         }
     }
