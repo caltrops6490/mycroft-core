@@ -3,6 +3,8 @@ ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
 COPY . /opt/mycroft/mycroft-core
 # Install Server Dependencies for Mycroft
+RUN ls -la ~/.mycroft
+RUN ls -la /root/.mycroft
 RUN set -x \
     # Un-comment any package sources that include a multiverse
 	&& sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list \
@@ -23,7 +25,7 @@ WORKDIR /opt/mycroft/mycroft-core
 RUN mkdir ~/.mycroft \
         && /opt/mycroft/mycroft-core/.venv/bin/msm -p mycroft_mark_1 default
 RUN ls -la ~/.mycroft
-RUN ls -la /root/mycroft
+RUN ls -la /root/.mycroft
 EXPOSE 8181
 
 # Integration Test Suite
